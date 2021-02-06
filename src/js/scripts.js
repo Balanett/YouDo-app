@@ -1,5 +1,5 @@
 const create = document.getElementById("createBtn")
-const list = document.getElementById("todo-list")
+let list = document.getElementById("todo-list")
 
 const inputArea = document.getElementById("input-area")
 let input = ""
@@ -21,8 +21,10 @@ create.addEventListener("click", function () {
     const priorityItem = document.createElement("a")
     const btnItem = document.createElement("button")
 
+    liItem.className = "task"
+
     dueItem.innerHTML = "Due Date"
-    dueItem.className = "right-side"
+    dueItem.className = "duedate"
     dueItem.addEventListener("mouseover", function () {
         dueItem.style.textDecoration = "underline"
     })
@@ -34,7 +36,8 @@ create.addEventListener("click", function () {
     })
 
     priorityItem.innerHTML = "Priority"
-    priorityItem.className = "right-side"
+    priorityItem.className = "priority"
+
     priorityItem.addEventListener("mouseover", function () {
         priorityItem.style.textDecoration = "underline"
     })
@@ -47,7 +50,6 @@ create.addEventListener("click", function () {
 
     btnItem.innerHTML = "Remove"
     btnItem.className ="removeBtn"
-    btnItem.className = "right-side"
     btnItem.addEventListener("click", function () {
         liItem.remove()
     })
@@ -64,3 +66,22 @@ create.addEventListener("click", function () {
     inputArea.style.cssText = "border-color: red"
     create.disabled = true
 });
+
+
+
+
+
+/* Filter:
+
+var prioritiesSelector = document.getElementById("priorities")
+const prioritiesOfTask = document.getElementsByClassName("priority")
+
+prioritiesSelector.addEventListener("change", function () {
+    console.log(prioritiesSelector.value)
+    for (let i=0; i<prioritiesOfTask.length; i++) {
+        console.log(prioritiesOfTask[i].value)
+    }
+})
+
+
+ */

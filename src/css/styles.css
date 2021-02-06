@@ -15,3 +15,6 @@ ol li {
     display: flex;
     justify-content: space-between;
 }
+#input-area {
+    border: 5px solid red;
+}

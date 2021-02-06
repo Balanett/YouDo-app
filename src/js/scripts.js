@@ -5,27 +5,62 @@ const inputArea = document.getElementById("input-area")
 let input = ""
 inputArea.addEventListener("keyup", function () {
     input = inputArea.value
-    if (input.length < 6) {
+    if (input.length < 6 || 35 < input.length) {
         inputArea.style.cssText = "border-color: red"
         create.disabled = true
-        console.log("igaz")
     } else {
         create.disabled = false
         inputArea.style.cssText = "border-color: green"
-        console.log("hamis")
     }
 })
 
 create.addEventListener("click", function () {
     const liItem = document.createElement("li")
+    const divItem = document.createElement("div")
+    const dueItem = document.createElement("a")
+    const priorityItem = document.createElement("a")
     const btnItem = document.createElement("button")
+
+    dueItem.innerHTML = "Due Date"
+    dueItem.className = "right-side"
+    dueItem.addEventListener("mouseover", function () {
+        dueItem.style.textDecoration = "underline"
+    })
+    dueItem.addEventListener("mouseout", function () {
+        dueItem.style.textDecoration = "none"
+    })
+    dueItem.addEventListener("click", function () {
+        dueItem.innerText = window.prompt("What is the due date?")
+    })
+
+    priorityItem.innerHTML = "Priority"
+    priorityItem.className = "right-side"
+    priorityItem.addEventListener("mouseover", function () {
+        priorityItem.style.textDecoration = "underline"
+    })
+    priorityItem.addEventListener("mouseout", function () {
+        priorityItem.style.textDecoration = "none"
+    })
+    priorityItem.addEventListener("click", function () {
+        priorityItem.innerText = window.prompt("What is the priority? (Low, Medium, High)")
+    })
+
+    btnItem.innerHTML = "Remove"
+    btnItem.className ="removeBtn"
+    btnItem.className = "right-side"
     btnItem.addEventListener("click", function () {
         liItem.remove()
     })
-    btnItem.innerHTML = "Remove"
-    btnItem.className ="removeBtn"
+
     liItem.textContent = input
-    liItem.appendChild(btnItem)
+    divItem.appendChild(dueItem)
+    divItem.appendChild(priorityItem)
+    divItem.appendChild(btnItem)
+    liItem.appendChild(divItem)
     list.append(liItem)
+
+    input = ""
     inputArea.value = ""
+    inputArea.style.cssText = "border-color: red"
+    create.disabled = true
 });

@@ -1,5 +1,15 @@
+body {
+    background-image: url("https://i.pinimg.com/originals/55/c3/26/55c326071ede881f1739b385bdd99730.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 h1 {
     color: deeppink;
+}
+
+h2 {
+    color: lightpink;
 }
 
 ol {
@@ -11,10 +21,20 @@ ol {
 ol li {
     background: white;
     padding: 10px;
-    margin: 10px auto;
+    margin: 8px;
     display: flex;
     justify-content: space-between;
 }
+ol li div {
+    display: flex;
+    justify-content: space-between;
+}
+
 #input-area {
     border: 5px solid red;
+}
+
+.right-side {
+    margin: 0 7px;
+    color: deeppink;
 }

@@ -1,1 +1,17 @@
-/* Your styles */
+h1 {
+    color: deeppink;
+}
+
+ol {
+    background: lightpink;
+    padding: 10px;
+    width: 500px;
+    list-style: none;
+}
+ol li {
+    background: white;
+    padding: 10px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
